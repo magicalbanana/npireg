@@ -11,7 +11,7 @@ import (
 
 func TestSearch_Integration(t *testing.T) {
 	c := &http.Client{
-		Timeout: time.Second * 1,
+		Timeout: time.Second * 5,
 	}
 
 	npiReg, err := NewNPIRegistry("https://npiregistry.cms.hhs.gov", c)
