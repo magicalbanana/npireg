@@ -15,76 +15,79 @@ type Result struct {
 	// - NPI-2: Organizational Providers (Type 2) NPIs
 	EnumerationType  string       `json:"enumeration_type"`
 	Basic            Basic        `json:"basic"`
-	OtherNames       []OtherName  `json:"other_names"`
-	Taxonomies       []Taxonomy   `json:"taxonomies"`
-	Addresses        []Address    `json:"addresses"`
-	CreatedEpoch     int          `json:"created_epoch"`
-	Identifiers      []Identifier `json:"identifiers"`
-	LastUpdatedEpoch int          `json:"last_updated_epoch"`
+	OtherNames       []OtherName  `json:"other_names,omitempty"`
+	Taxonomies       []Taxonomy   `json:"taxonomies,omitempty"`
+	Addresses        []Address    `json:"addresses,omitempty"`
+	Identifiers      []Identifier `json:"identifiers,omitempty"`
+	CreatedEpoch     int64        `json:"created_epoch"`
+	LastUpdatedEpoch int64        `json:"last_updated_epoch"`
 }
 
 // Basic ...
 type Basic struct {
-	Status                              string `json:"status"`
-	OrganizationName                    string `json:"organization_name"`
-	LastName                            string `json:"last_name"`
-	FirstName                           string `json:"first_name"`
-	MiddleName                          string `json:"middle_name"`
-	NamePrefix                          string `json:"name_prefix"`
-	NameSuffix                          string `json:"name_suffix"`
-	Name                                string `json:"name"`
-	SoloProprietor                      string `json:"sole_proprietor"`
-	Gender                              string `json:"gender"`
-	LastUpdated                         string `json:"last_updated"`
-	EnumerationDate                     string `json:"enumeration_date"`
-	Credential                          string `json:"credential"`
-	DeactivationReasonCode              string `json:"deactivation_reason_code"`
-	DeactivationDate                    string `json:"deactivation_date"`
-	ReactivationDate                    string `json:"reactivation_date"`
-	AuthorizedOfficialLastName          string `json:"authorized_official_last_name"`
-	AuthorizedOfficialFirstName         string `json:"authorized_official_first_name"`
-	AuthorizedOfficialMiddleName        string `json:"authorized_official_middle_name"`
-	AuthorizedOfficialTitleOrPosition   string `json:"authorized_official_title_or_position"`
-	AuthorizedOfficialTelephoneNumber   string `json:"authorized_official_telephone_number"`
-	AuthorizedOfficialNamePrefix        string `json:"authorized_official_name_prefix"`
-	AuthorizedOfficiaNameSuffix         string `json:"authorized_official_name_suffix"`
-	AuthorizedOfficialCredential        string `json:"authorized_official_credential"`
-	OrganizationSubpart                 string `json:"organizational_subpart"`
-	ParentOrganizationLegalBusinessName string `json:"parent_organization_legal_business_name"`
-	ParentOrganizationEIN               string `json:"parent_organization_ein"`
+	ReplacementNPI                      string `json:"replacement_npi,omitempty"`
+	EIN                                 string `json:"ein,omitempty"`
+	Status                              string `json:"status,omitempty"`
+	OrganizationName                    string `json:"organization_name,omitempty"`
+	LastName                            string `json:"last_name,omitempty"`
+	FirstName                           string `json:"first_name,omitempty"`
+	MiddleName                          string `json:"middle_name,omitempty"`
+	NamePrefix                          string `json:"name_prefix,omitempty"`
+	NameSuffix                          string `json:"name_suffix,omitempty"`
+	Name                                string `json:"name,omitempty"`
+	SoleProprietor                      string `json:"sole_proprietor,omitempty"`
+	Gender                              string `json:"gender,omitempty"`
+	LastUpdated                         string `json:"last_updated,omitempty"`
+	EnumerationDate                     string `json:"enumeration_date,omitempty"`
+	Credential                          string `json:"credential,omitempty"`
+	DeactivationReasonCode              string `json:"deactivation_reason_code,omitempty"`
+	DeactivationDate                    string `json:"deactivation_date,omitempty"`
+	ReactivationDate                    string `json:"reactivation_date,omitempty"`
+	AuthorizedOfficialLastName          string `json:"authorized_official_last_name,omitempty"`
+	AuthorizedOfficialFirstName         string `json:"authorized_official_first_name,omitempty"`
+	AuthorizedOfficialMiddleName        string `json:"authorized_official_middle_name,omitempty"`
+	AuthorizedOfficialTitleOrPosition   string `json:"authorized_official_title_or_position,omitempty"`
+	AuthorizedOfficialTelephoneNumber   string `json:"authorized_official_telephone_number,omitempty"`
+	AuthorizedOfficialNamePrefix        string `json:"authorized_official_name_prefix,omitempty"`
+	AuthorizedOfficialNameSuffix        string `json:"authorized_official_name_suffix,omitempty"`
+	AuthorizedOfficialCredential        string `json:"authorized_official_credential,omitempty"`
+	OrganizationSubpart                 string `json:"organizational_subpart,omitempty"`
+	ParentOrganizationLegalBusinessName string `json:"parent_organization_legal_business_name,omitempty"`
+	ParentOrganizationEIN               string `json:"parent_organization_ein,omitempty"`
 }
 
 // OtherName ...
 type OtherName struct {
-	OrgnizationName string `json:"organization_name"`
-	Code            string `json:"code"`
-	LastName        string `json:"last_name"`
-	FirstName       string `json:"first_name"`
-	MiddleName      string `json:"middle_name"`
-	Prefix          string `json:"prefix"`
-	Suffix          string `json:"suffix"`
-	Credential      string `json:"credential"`
-	Type            string `json:"type"`
+	OrgnizationName string `json:"organization_name,omitempty"`
+	Code            string `json:"code,omitempty"`
+	LastName        string `json:"last_name,omitempty"`
+	FirstName       string `json:"first_name,omitempty"`
+	MiddleName      string `json:"middle_name,omitempty"`
+	Prefix          string `json:"prefix,omitempty"`
+	Suffix          string `json:"suffix,omitempty"`
+	Credential      string `json:"credential,omitempty"`
+	Type            string `json:"type,omitempty"`
 }
 
 // Taxonomy ...
 type Taxonomy struct {
-	State   string `json:"state"`
-	Code    string `json:"code"`
-	Primary bool   `json:"primary"`
-	License string `json:"license"`
-	Desc    string `json:"desc"`
+	State         string `json:"state,omitempty"`
+	Code          string `json:"code,omitempty"`
+	Primary       bool   `json:"primary,omitempty"`
+	License       string `json:"license,omitempty"`
+	Desc          string `json:"desc,omitempty"`
+	TaxonomyGroup string `json:"taxonomy_group,omitempty"`
 }
 
 // Address ..
 type Address struct {
-	Address1    string `json:"address_1"`
-	Address2    string `json:"address_2"`
-	State       string `json:"state"`
-	PostalCode  string `json:"postal_code"`
-	CountryCode string `json:"country_code"`
-	CountryName string `json:"country_name"`
-	AddressType string `json:"address_type"`
+	Address1    string `json:"address_1,omitempty"`
+	Address2    string `json:"address_2,omitempty"`
+	State       string `json:"state,omitempty"`
+	PostalCode  string `json:"postal_code,omitempty"`
+	CountryCode string `json:"country_code,omitempty"`
+	CountryName string `json:"country_name,omitempty"`
+	AddressType string `json:"address_type,omitempty"`
 	// Refers to whether the address information entered pertains to the provider's
 	// Mailing Address or the provider's Practice Location Address. When not
 	// specified, the results will contain the providers where either the Mailing
@@ -92,17 +95,17 @@ type Address struct {
 	// information. Valid values are:
 	// - LOCATION
 	// - MAILING
-	AddressPurpose  string `json:"address_purpose"`
-	City            string `json:"city"`
-	TelephoneNumber string `json:"telephone_number"`
-	FaxNumber       string `json:"fax_number"`
+	AddressPurpose  string `json:"address_purpose,omitempty"`
+	City            string `json:"city,omitempty"`
+	TelephoneNumber string `json:"telephone_number,omitempty"`
+	FaxNumber       string `json:"fax_number,omitempty"`
 }
 
 // Identifier ...
 type Identifier struct {
-	Code       string `json:"code"`
-	Issuer     string `json:"issuer"`
-	State      string `json:"state"`
-	Identifier string `json:"identifier"`
-	Desc       string `json:"desc"`
+	Code       string `json:"code,omitempty"`
+	Issuer     string `json:"issuer,omitempty"`
+	State      string `json:"state,omitempty"`
+	Identifier string `json:"identifier,omitempty"`
+	Desc       string `json:"desc,omitempty"`
 }
