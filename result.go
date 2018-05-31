@@ -1,5 +1,7 @@
 package npireg
 
+import "strings"
+
 // Result represents the data returned after performing an NPI look up
 // https://npiregistry.cms.hhs.gov/registry/Json-Conversion-Field-Map
 type Result struct {
@@ -99,6 +101,19 @@ type Address struct {
 	City            string `json:"city,omitempty"`
 	TelephoneNumber string `json:"telephone_number,omitempty"`
 	FaxNumber       string `json:"fax_number,omitempty"`
+}
+
+// FormattedAddress ...
+func (a *Address) FormattedAddress() string {
+	aa := make([]string, 0)
+	aa = append(aa, a.Address1)
+	if a.Address2 != "" {
+		aa = append(aa, a.Address2)
+	}
+	aa = append(aa, a.State)
+	aa = append(aa, a.PostalCode)
+	aa = append(aa, a.CountryCode)
+	return strings.Join(aa, " ")
 }
 
 // Identifier ...
