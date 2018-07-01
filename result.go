@@ -110,6 +110,9 @@ func (a *Address) FormattedAddress() string {
 	if a.Address2 != "" {
 		aa = append(aa, a.Address2)
 	}
+	aa = append(aa, ",")
+	aa = append(aa, a.City)
+	aa = append(aa, ",")
 	aa = append(aa, a.State)
 	aa = append(aa, a.PostalCode)
 	aa = append(aa, a.CountryCode)

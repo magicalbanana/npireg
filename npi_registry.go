@@ -10,8 +10,6 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
-
-	"github.com/davecgh/go-spew/spew"
 )
 
 // NPIRegistry ...
@@ -61,7 +59,6 @@ func (n *npiRegistry) Search(ctx context.Context, opt *SearchOpts) (*SearchResul
 	req = req.WithContext(ctx)
 
 	req.URL.RawQuery = opt.BuildQueryParams(req.URL.Query()).Encode()
-	spew.Dump(req.URL)
 
 	resp, err := n.client.Do(req)
 	if err != nil {
