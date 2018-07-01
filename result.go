@@ -114,6 +114,7 @@ func (a *Address) FormattedAddress() string {
 	aa = append(aa, a.City)
 	aa = append(aa, ",")
 	aa = append(aa, a.State)
+	aa = append(aa, ",")
 	aa = append(aa, a.PostalCode)
 	aa = append(aa, a.CountryCode)
 	return strings.Join(aa, " ")
