@@ -16,7 +16,7 @@ type Result struct {
 	// - NPI-1: Individual Providers (Type 1) NPIs
 	// - NPI-2: Organizational Providers (Type 2) NPIs
 	EnumerationType  string       `json:"enumeration_type"`
-	Basic            Basic        `json:"basic"`
+	Basic            *Basic       `json:"basic,omitempty"`
 	OtherNames       []OtherName  `json:"other_names,omitempty"`
 	Taxonomies       []Taxonomy   `json:"taxonomies,omitempty"`
 	Addresses        []Address    `json:"addresses,omitempty"`

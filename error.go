@@ -2,11 +2,11 @@ package npireg
 
 // Error ...
 type Error struct {
-	Message  string `json:"message"`
+	Message  string `json:"message,omitempty"`
 	Response struct {
-		StatusCode int    `json:"status_code"`
-		Body       string `json:"body"`
-	} `json:"response"`
+		StatusCode int    `json:"status_code,omitempty"`
+		Body       string `json:"body,omitempty"`
+	} `json:"response,omitempty"`
 }
 
 // Error ...
